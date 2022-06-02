@@ -1,7 +1,8 @@
 
 import { Container } from "./styles";
 import { useTransactions } from "../../hooks/UseTransactions";
-
+import { AiFillDelete } from 'react-icons/ai'
+import {FiEdit3} from 'react-icons/fi'
 
 
 
@@ -17,6 +18,7 @@ export function TrasactionsTable(){
                       <th>Valor</th>
                       <th>Categoria</th>
                       <th>Data</th>
+                      <th>Edit/Delete</th>
                   </tr>
               </thead>
               <tbody>
@@ -32,6 +34,10 @@ export function TrasactionsTable(){
                         <td>{new Intl.DateTimeFormat('pt-BR').format(
                             new Date(transaction.createdAt)
                         )}</td>
+                        <td>
+                            <button><FiEdit3 color='black' size={22}/></button>
+                            <button><AiFillDelete size={22}/></button>
+                        </td>
                     </tr>
                      )
                  })}
