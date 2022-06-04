@@ -6,8 +6,8 @@ import {FiEdit3} from 'react-icons/fi'
 
 
 
-export function TrasactionsTable(){
-    const {transactions} = useTransactions()
+export function TransactionsTable(){
+    const {transactions , controllerEditTransactionModal , getTransaction , deleteTransaction} = useTransactions()
 
     return(
       <Container>
@@ -35,8 +35,13 @@ export function TrasactionsTable(){
                             new Date(transaction.createdAt)
                         )}</td>
                         <td>
-                            <button><FiEdit3 color='black' size={22}/></button>
-                            <button><AiFillDelete size={22}/></button>
+                            <button type="button" onClick={()=>{
+                                controllerEditTransactionModal(true)
+                                getTransaction(transaction.id)
+                            }}><FiEdit3 color='black' size={22}/></button>
+                            <button type="button" onClick={()=>{
+                                 deleteTransaction(transaction.id)
+                            }}><AiFillDelete size={22}/></button>
                         </td>
                     </tr>
                      )

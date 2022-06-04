@@ -30,7 +30,7 @@ export const Container = styled.div`
          button{
             background:none;
             border: none;
-            width:50px;
+            width: 2.5rem;
          }
      }
  }
